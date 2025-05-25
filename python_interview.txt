@@ -1,0 +1,3 @@
+Python interview questions.
+
+1. Decorators in python
