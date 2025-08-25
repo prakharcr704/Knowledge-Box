@@ -18,3 +18,18 @@ for ch in s1.lower():
 print(common)
 
 # ---------------------------------------------------------------------------------------------------------------
+
+# Q2 Find out the frequency of each letter in a string 
+
+s = 'prakhar'
+frequency = {}
+
+for ch in s.lower():
+    if ch.isalpha():
+        if ch in frequency:
+            frequency[ch] += 1
+        else:
+            frequency[ch] = 1  
+            
+
+print(frequency)
