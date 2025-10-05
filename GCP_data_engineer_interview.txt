@@ -1,0 +1,13 @@
+Bigquery
+
+1. How would you optimize query performance in BigQuery?
+
+Answer: To optimize BigQuery performance:
+Partitioning: Divide tables by date, integer range, or ingestion time to reduce scanned data (e.g., PARTITION BY DATE(sale_date)).
+Clustering: Sort data by columns to minimize data read during queries (e.g., CLUSTER BY customer_id).
+**Avoid SELECT *** : Specify only required columns to reduce data scanned.
+Use Materialized Views: Precompute aggregations for faster query execution.
+Denormalize Data: Reduce joins by combining related data into a single table.
+Caching: Leverage BigQuery’s query caching for repeated queries.
+
+2. 
