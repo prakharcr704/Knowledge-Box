@@ -30,6 +30,14 @@ select emp.* , dept.dep_id, dept.dep_name from emp
 left join dept on emp.department_id = dept.dep_id
 where dept.dep_id is null
 
+-- 5. second highest salary in each dept
+
+select emp.* , dense rank() over(partition by dept_id order by salary) as rn from emp ) a
+where rn=2
+
+
+
+
 
 
 
