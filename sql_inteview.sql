@@ -1,4 +1,4 @@
---SQL INTERVIEW QUESTIONS
+--SQL INTERVIEW QUESTIONS - ankit bansal - https://www.youtube.com/watch?v=Iv9qBz-cyVA&t=353s
 
 --1. How to find duplicates in a given table?
 select emp_id, count(1) from emp group by emp_id having count(1)>1
@@ -23,6 +23,7 @@ select manager_id from emp1
      --given that there are 2 tables - emp & dept
 
 select emp_id from employee where emp_id not in ( select dept_id from dept)
+
 
 
 
