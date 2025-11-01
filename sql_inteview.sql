@@ -35,6 +35,14 @@ where dept.dep_id is null
 select * from (select emp.* , dense rank() over(partition by dept_id order by salary) as rn from emp ) a
 where rn=2
 
+--6 find all the transaction done by shilpa
+-- use this incase if the names are in different Case ( upper / lower )
+select * from orders where upper(customer_name) = 'SHILPA'
+
+--7 self join, manager salary > emp salary
+
+--8 joins left join / inner join
+
 
 
 
