@@ -22,7 +22,14 @@ select manager_id from emp1
 --4. employees who are not present in dept.
      --given that there are 2 tables - emp & dept
 
+-- 1 approach
 select emp_id from employee where emp_id not in ( select dept_id from dept)
+
+-- 2 approach
+select emp.* , dept.dep_id, dept.dep_name from emp 
+left join dept on emp.department_id = dept.dep_id
+where dept.dep_id is null
+
 
 
 
