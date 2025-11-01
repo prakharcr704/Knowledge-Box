@@ -19,5 +19,11 @@ union
 select manager_id from emp1
 --above query will give only unique manager ids.
 
+--4. employees who are not present in dept.
+     --given that there are 2 tables - emp & dept
+
+select emp_id from employee where emp_id not in ( select dept_id from dept)
+
+
 
 
