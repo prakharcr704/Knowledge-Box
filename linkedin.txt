@@ -40,5 +40,28 @@ SELECT
     ) AS running_total
 FROM sales;
 ______________________________________________________________________________
+4. second highest salary and nth highest salary 
 
+CREATE TABLE employees (
+    id INT,
+    name VARCHAR(50),
+    salary INT
+);
 
+INSERT INTO employees (id, name, salary) VALUES
+(1, 'Alice', 100000),
+(2, 'Bob', 90000),
+(3, 'Charlie', 90000),
+(4, 'David', 80000),
+(5, 'Eve', 75000),
+(6, 'Frank', 100000),
+(7, 'Grace', 70000);
+
+select * from employees;
+
+select salary from
+
+(
+select salary , dense_rank() over(order by salary desc) as rnk from employees
+) T
+where rnk=4;
