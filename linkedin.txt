@@ -1,1 +1,44 @@
 Linkedin questions.
+
+1. RDD VS Dataframe ?
+
+rdd -
+for unstructured data & low level transformations.
+
+rdd = spark.sparkContext.parallelize([1,2,3,4])
+rdd.map(lambda x: x*2)
+_____________________________________________________________________
+df = spark.read.csv("file.csv", header=True)
+df.select("name").filter(df.age > 30)
+
+for structured data and table like view
+
+_____________________________________________________________________
+2. Design an algorithm to deduplicate millions of records efficiently.
+df.dropDuplicates(["user_id"])
+
+_____________________________________________________________________
+
+3. Write a SQL query using window functions to find the 2nd highest salary or calculate running totals.
+
+SELECT salary
+FROM (
+    SELECT salary,
+           DENSE_RANK() OVER (ORDER BY salary DESC) AS rnk
+    FROM employees
+) t
+WHERE rnk = 2;
+-----------------------------------------------------------------------------
+SELECT
+    customer_id,
+    date,
+    amount,
+    SUM(amount) OVER (
+        PARTITION BY customer_id
+        ORDER BY date
+        ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+    ) AS running_total
+FROM sales;
+______________________________________________________________________________
+
+
