@@ -34,6 +34,20 @@ for ch in s.lower():
 
 print(frequency)
 
+# -----------------------------------------------------------------
+# another way
+word = 'programming'
+freq = {}
+count = 0
+for ch in word:
+    if ch in freq:
+        freq[ch] += 1
+    else:
+        freq[ch] = 1
+
+print(freq)
+
+
 # -----------------------------------------------------------------------------------------------------------------
 
 # Q3 python program for conversion of 2 list into dictionary
