@@ -1,0 +1,36 @@
+Topics I've seen frequently asked in "Senior" Data Engineering interviews for anyone w/ >= 5 years of experience.
+
+𝗔𝗿𝗰𝗵𝗶𝘁𝗲𝗰𝘁𝘂𝗿𝗲 & 𝗗𝗲𝘀𝗶𝗴𝗻 𝗣𝗮𝘁𝘁𝗲𝗿𝗻𝘀
+ • Lambda vs Kappa Architecture — when each breaks
+ • Medallion Architecture (Bronze / Silver / Gold)
+ • Data Mesh vs Centralized Platform — org + tech trade-offs
+ • Lakehouse Table Formats (Delta vs Iceberg vs Hudi)
+ • Storage Layer Decisions (Parquet vs ORC, file sizing, small-file problem)
+
+𝗗𝗶𝘀𝘁𝗿𝗶𝗯𝘂𝘁𝗲𝗱 𝗦𝘆𝘀𝘁𝗲𝗺𝘀 & 𝗣𝗲𝗿𝗳𝗼𝗿𝗺𝗮𝗻𝗰𝗲
+ • Spark Internals (Catalyst, Tungsten, AQE, shuffle mechanics)
+ • Join Strategies at scale (Broadcast / Sort-Merge, Skew handling)
+ • Partitioning, Bucketing, Z-Ordering & Liquid Clustering
+ • Query Optimization, Execution Plans (predicate pushdown, partition pruning)
+ • Data Skew & Hot-Partition Mitigation
+
+𝗦𝘁𝗿𝗲𝗮𝗺𝗶𝗻𝗴 & 𝗥𝗲𝗮𝗹-𝗧𝗶𝗺𝗲
+ • Exactly-Once vs At-Least-Once Semantics — guarantees
+ • Kafka at Scale (partitioning strategy, retention, log compaction)
+ • Watermarking, Windowing & Late-Arriving Data
+ • Stateful Stream Processing (RocksDB, checkpointing, state TTL)
+ • Backpressure & Flow Control
+
+𝗗𝗮𝘁𝗮 𝗠𝗼𝗱𝗲𝗹𝗶𝗻𝗴 𝗮𝘁 𝗦𝗰𝗮𝗹𝗲
+ • SCD Type 2 + Bitemporal Modeling
+ • Kimball (Star) vs Data Vault vs One Big Table
+ • Schema Evolution + Backward / Forward Compatibility (Avro, Protobuf)
+ • CDC Patterns (Debezium, log-based vs trigger-based, ordering guarantees)
+ • Idempotency & Deduplication (merge keys, transactional writes)
+
+𝗥𝗲𝗹𝗶𝗮𝗯𝗶𝗹𝗶𝘁𝘆, 𝗚𝗼𝘃𝗲𝗿𝗻𝗮𝗻𝗰𝗲 & 𝗖𝗼𝘀𝘁
+ • Data Contracts & Schema Registry (producer-consumer trust boundary)
+ • Data Quality Frameworks (Great Expectations, Soda, dbt tests)
+ • Data Lineage & Observability
+ • Backfills, Replay & Reprocessing (atomic publish, idempotent pipelines)
+ • Cost Optimization (cluster sizing, autoscaling, caching, trade-offs)
