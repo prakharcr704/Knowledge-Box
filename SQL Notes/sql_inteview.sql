@@ -162,3 +162,85 @@ SELECT
 FROM emp
 LEFT JOIN dept
     ON emp.department_id = dept.dep_id;
+
+/*===========================================================
+Question:
+--------
+You have two tables:
+
+employee
+---------
+emp_id
+emp_name
+salary
+department_id
+gender
+
+department
+-----------
+department_id
+department_name
+
+Write a SQL query to display:
+
+department_name | second_highest_salary | second_lowest_salary
+
+The result should contain one row per department.
+Use DENSE_RANK() so that duplicate salaries are handled correctly.
+===========================================================*/
+
+
+WITH ranked_data AS (
+    SELECT
+        d.department_name,
+        e.salary,
+        DENSE_RANK() OVER (
+            PARTITION BY d.department_name
+            ORDER BY e.salary DESC
+        ) AS salary_desc_rank,
+
+        DENSE_RANK() OVER (
+            PARTITION BY d.department_name
+            ORDER BY e.salary ASC
+        ) AS salary_asc_rank
+
+    FROM employee e
+    JOIN department d
+        ON e.department_id = d.department_id
+)
+
+SELECT
+    department_name,
+
+    MAX(
+        CASE
+            WHEN salary_desc_rank = 2
+            THEN salary
+        END
+    ) AS second_highest_salary,
+
+    MAX(
+        CASE
+            WHEN salary_asc_rank = 2
+            THEN salary
+        END
+    ) AS second_lowest_salary
+
+FROM ranked_data
+
+GROUP BY department_name
+
+ORDER BY department_name;
+/*
+1. Join employee and department tables.
+2. Use DENSE_RANK() in descending order to find the second highest salary.
+3. Use DENSE_RANK() in ascending order to find the second lowest salary.
+4. Use CASE expressions to filter only rank = 2.
+5. Use MAX() to convert multiple rows into a single row per department.
+6. GROUP BY department_name to produce one result per department.
+
+Why DENSE_RANK()?
+- Employees with the same salary receive the same rank.
+- Unlike ROW_NUMBER(), duplicate salaries are not skipped.
+- Unlike RANK(), there are no gaps in ranking (1,2,3 instead of 1,2,2,4). */
+
