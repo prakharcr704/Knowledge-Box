@@ -37,3 +37,7 @@
 19. Bucketing
 
 20. Serialization
+
+21. explode()
+
+22. mapPartitions()
