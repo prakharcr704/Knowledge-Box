@@ -1,0 +1,4 @@
+1. Data lineage
+Data Lineage is the ability to track the complete lifecycle of data—from where it originated, how it was transformed, and where it was consumed.
+It answers: "Where did this data come from, what happened to it, and where did it go?"
+in GCP - Dataplex Universal Catalog (provides metadata management and data lineage capabilities)
