@@ -2,3 +2,44 @@
 Data Lineage is the ability to track the complete lifecycle of data—from where it originated, how it was transformed, and where it was consumed.
 It answers: "Where did this data come from, what happened to it, and where did it go?"
 in GCP - Dataplex Universal Catalog (provides metadata management and data lineage capabilities)
+
+"I implement data lineage by capturing metadata at every stage of the pipeline. During ingestion, I record source information, file names, batch IDs, and ingestion timestamps. During transformation, I track input and output datasets, job IDs, and SQL transformations. I use Cloud Composer for orchestration, BigQuery job metadata for query dependencies, and Dataplex Universal Catalog for automated end-to-end lineage across GCP services. Additionally, I maintain audit tables with pipeline execution details and record counts, enabling debugging, impact analysis, compliance, and root cause analysis."
+
+2. Data Mesh
+
+3. SLA vs SLO
+
+4. Metadata -
+BigQuery Metadata - bq stores metadata internally.
+It includes:
+
+Table name
+Dataset name
+Schema
+Column names
+Data types
+Partition information
+Clustering information
+Labels
+Table description
+Creation time
+Last modified time
+
+You can access it using the INFORMATION_SCHEMA views.
+Dataplex Universal Catalog ⭐⭐⭐⭐⭐
+
+This is GCP's centralized metadata and governance service.
+
+It stores information like:
+
+Tables
+Schemas
+Business Glossary
+Tags
+Lineage
+Data Quality
+Ownership
+
+Think of it as a catalog of metadata, not the storage location for the actual data.
+
+
