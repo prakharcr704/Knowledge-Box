@@ -1,0 +1,39 @@
+1. RDD
+
+2. Lazy Evaluation
+
+3. Catalyst Optimizer
+
+4. Tungsten Engine
+
+5. Repartition
+
+6. Coalesce
+
+7. Cache
+
+8. Persist
+
+9. Shuffle
+
+10. Narrow Transformation
+
+11. Wide Transformation
+
+12. Executor
+
+13. Driver
+
+14. Cluster Manager
+
+15. Stage
+
+16. Adaptive Query Execution
+
+17. Salting
+
+18. Predicate Pushdown
+
+19. Bucketing
+
+20. Serialization
